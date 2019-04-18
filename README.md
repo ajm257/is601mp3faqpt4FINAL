@@ -1,1 +1,2 @@
-# is601mp3faqpt1
+# IS601 Mini Project 3
+## Part 2 - Displaying the Data
