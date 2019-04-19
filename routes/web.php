@@ -27,6 +27,7 @@ Route::patch('/user/{user_id}/profile/{profile_id}', 'ProfileController@update')
 Route::delete('/user/{user_id}/profile/{profile_id}', 'ProfileController@destroy')->name('profile.destroy');
 
 
+
 Route::resources([
     'question' => 'QuestionController',
 ]);
