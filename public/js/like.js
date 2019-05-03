@@ -7,6 +7,7 @@ $(document).ready(function(){
 
 
     $('.like').on('click', function(event) {
-       console.log(event);
+        var isLike = event.target.previousElementSibling == null ? true : false;
+       console.log(isLike);
     });
 });

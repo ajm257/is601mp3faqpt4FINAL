@@ -17,9 +17,10 @@
                         <a class="btn btn-primary float-right" href="{{ route('answers.edit',['question_id'=> $question, 'answer_id'=> $answer->id, ])}}">
                             Edit Answer
                         </a>
-                        <div class="interaction"></div>
+                        <div class="interaction">
                         <a href="#" class="like">Like</a>
                         <a href="#" class="like">Dislike</a>
+                        </div>
 
 
 
@@ -29,4 +30,5 @@
             </div>
         </div>
     </div>
+    
 @endsection
