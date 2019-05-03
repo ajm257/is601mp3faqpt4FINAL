@@ -17,4 +17,8 @@ class Answer extends Model
     {
         return $this->belongsTo('App\Question'); //answer belongs to question
     }
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
 }
