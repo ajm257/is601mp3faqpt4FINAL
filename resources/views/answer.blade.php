@@ -8,6 +8,14 @@
                     <div class="card-header">Answer</div>
                     <div class="card-body" data-answerid= "{{ $answer->id }}">
                         {{$answer->body}}
+
+                        <br>
+
+                        <div class="interaction">
+                            <a href="#" class="like">Like</a>
+                            <a href="#" class="like">Dislike</a>
+                        </div>
+
                     </div>
                     <div class="card-footer">
                         {{ Form::open(['method'  => 'DELETE', 'route' => ['answers.destroy', $question, $answer->id]])}}
@@ -17,11 +25,6 @@
                         <a class="btn btn-primary float-right" href="{{ route('answers.edit',['question_id'=> $question, 'answer_id'=> $answer->id, ])}}">
                             Edit Answer
                         </a>
-                        <div class="interaction">
-                        <a href="#" class="like">Like</a>
-                        <a href="#" class="like">Dislike</a>
-                        </div>
-
 
 
                     </div>
