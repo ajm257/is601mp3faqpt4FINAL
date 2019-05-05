@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\Question;
+use App\Like;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -109,6 +110,11 @@ class AnswerController extends Controller
 
         return redirect()->route('answer.show',['question_id' => $question, 'answer_id' => $answer])->with('message', 'Updated');
 
+    }
+
+    public function likeAnswer(Request $request)
+    {
+        dd('it works');
     }
 
     /**

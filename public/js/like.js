@@ -6,14 +6,17 @@ $(document).ready(function(){
     });
 
 
-    $('.like').on('click', function(event) {
+    $('.like').on('click', function (event) {
         event.preventDefault();
         answerId = event.target.parentNode.parentNode.dataset['answerid'];
         var isLike = event.target.previousElementSibling == null;
         $.ajax({
             method: 'POST',
             url: urlLike,
-            data: {isLike: isLike, answerId: answerId, _token: token}
+            data: {isLike: isLike, answerId: answerId, _token: token},
+            success: function (data) {
+                console.dir(data);
+            }
         })
             .done(function() {
 
