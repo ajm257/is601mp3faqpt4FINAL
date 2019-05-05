@@ -32,7 +32,7 @@
     </div>
 
     <script>
-        var token = '{{ Session::token() }}';;
+        var token = '{{ Session::token() }}';
         var urlLike = '{{ route('like') }}';
     </script>
 
