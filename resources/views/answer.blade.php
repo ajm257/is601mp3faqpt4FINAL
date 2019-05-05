@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Answer</div>
-                    <div class="card-body">
+                    <div class="card-body" data-answerid= "{{ $answer->id }}">
                         {{$answer->body}}
                     </div>
                     <div class="card-footer">
@@ -30,5 +30,10 @@
             </div>
         </div>
     </div>
-    
+
+    <script>
+        var token = '{{ Session::token() }}';;
+        var urlLike = '{{ route('like') }}';
+    </script>
+
 @endsection

@@ -7,7 +7,18 @@ $(document).ready(function(){
 
 
     $('.like').on('click', function(event) {
-        var isLike = event.target.previousElementSibling == null ? true : false;
-       console.log(isLike);
+        event.preventDefault();
+        answerId = event.target.parentNode.parentNode.dataset['answerid'];
+        var isLike = event.target.previousElementSibling == null;
+        $.ajax({
+            method: 'POST',
+            url: urlLike,
+            data: {isLike: isLike, answerId: answerId, _token: token}
+        })
+            .done(function() {
+
+                // this is where you add functionality to change the button link text once everything is working
+            });
     });
 });
+
