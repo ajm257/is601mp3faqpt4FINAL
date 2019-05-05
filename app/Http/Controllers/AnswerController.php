@@ -120,7 +120,7 @@ class AnswerController extends Controller
         $update = false; //to store that after post is liked, knows to update or just save
 
         if (!$answer) {
-            return "not working";
+            return null;
         }
         $user = Auth::user();
         $like = $user->likes()->where('answer_id', $answer_id)->first(); //check if post is already liked by this user
@@ -142,7 +142,7 @@ class AnswerController extends Controller
         } else {
             $like->save();
         }
-        return "not working";
+        return null;
     }
 
     /**
