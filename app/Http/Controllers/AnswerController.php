@@ -114,7 +114,35 @@ class AnswerController extends Controller
 
     public function likeAnswer(Request $request)
     {
-        dd('it works');
+        $answer_id = $request['answerId']; //retrieve the answer id
+        $answer = Answer::find($answer_id); //retrieve isLike data from ajax request - determining if it is like or dislike
+        $is_like = $request['isLike'] === 'true' ? true : false; //convert string to boolean
+        $update = false; //to store that after post is liked, knows to update or just save
+
+        if (!$answer) {
+            return "not working";
+        }
+        $user = Auth::user();
+        $like = $user->likes()->where('answer_id', $answer_id)->first(); //check if post is already liked by this user
+        if ($like) {
+            $already_like = $like->like;
+            $update = true;
+            if ($already_like == $is_like) { //if currently liked, undo it, or if disliked, change like to zero
+                $like->delete();
+                return null;
+            }
+        } else {
+            $like = new Like();
+        }
+        $like->like = $is_like;
+        $like->user_id = $user->id;
+        $like->answer_id = $answer->id;
+        if ($update) {
+            $like->update();
+        } else {
+            $like->save();
+        }
+        return "not working";
     }
 
     /**
