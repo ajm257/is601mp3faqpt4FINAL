@@ -19,8 +19,12 @@ $(document).ready(function(){
             }
         })
             .done(function() {
-
-                // this is where you add functionality to change the button link text once everything is working
+                event.target.innerText = isLike ? event.target.innerText == 'Like' ? 'You like this answer' : 'Like' : event.target.innerText == 'Dislike' ? 'You don\'t like this answer' : 'Dislike';
+                if (isLike) {
+                    event.target.nextElementSibling.innerText = 'Dislike';
+                } else {
+                    event.target.previousElementSibling.innerText = 'Like';
+                }
             });
     });
 });

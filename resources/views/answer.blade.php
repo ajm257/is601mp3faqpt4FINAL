@@ -12,8 +12,9 @@
                         <br>
 
                         <div class="interaction">
-                            <a href="#" class="like">Like</a>
-                            <a href="#" class="like">Dislike</a>
+                            <a href="#" class="like">{{ Auth::user()->likes()->where('answer_id', $answer->id)->first() ? Auth::user()->likes()->where('answer_id', $answer->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a> |
+                            <a href="#" class="like">{{ Auth::user()->likes()->where('answer_id', $answer->id)->first() ? Auth::user()->likes()->where('answer_id', $answer->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
+
                         </div>
 
                     </div>
