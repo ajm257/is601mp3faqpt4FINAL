@@ -34,6 +34,8 @@ Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@d
 
 
 Route::post('/like', 'AnswerController@likeAnswer')->name('like');
+Route::get('/user/{user_id}/likes', 'AnswerController@showLikedAnswer')->name('likes.show');
+
 
 
 Route::resources([

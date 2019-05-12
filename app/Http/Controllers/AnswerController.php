@@ -112,6 +112,16 @@ class AnswerController extends Controller
 
     }
 
+    public function showLikedAnswer()
+    {
+
+        $likes = Like::select('answer_id')->where('user_id',Auth::user()->id)->get();
+        $answers = Answer::find($likes);
+
+        return view('likes',['answers'=>$answers]);
+        
+    }
+
     public function likeAnswer(Request $request)
     {
         $answer_id = $request['answerId']; //retrieve the answer id
