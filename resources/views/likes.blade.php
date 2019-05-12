@@ -10,7 +10,11 @@
                     <div class="card-body ">
 
 
-                        {{$answers}}
+                        @foreach ($answers as $a)
+                            <li> <b>Question ID:</b> {{$a->question_id}} ||
+                                <b>Answer:</b> {{ $a->body }} </li>
+                            <br>
+                        @endforeach
 
 
 
