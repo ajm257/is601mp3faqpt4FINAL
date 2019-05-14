@@ -112,7 +112,7 @@ class AnswerController extends Controller
 
     }
 
-    public function showLikedAnswer()
+    public function showLikedDislikedAnswer()
     {
 
         $likes = Like::select('answer_id')->where('user_id',Auth::user()->id)->get();
